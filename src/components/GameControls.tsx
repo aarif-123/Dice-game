@@ -51,6 +51,17 @@ export function GameControls({
   }
 
   if (roundComplete) {
+    // Check if this was the last round
+    if (state.currentRound >= state.maxRounds) {
+      return (
+        <div className="text-center">
+          <div className="text-lg font-semibold text-green-600 dark:text-green-400 mb-4">
+            🎉 Game Complete! 🎉
+          </div>
+        </div>
+      );
+    }
+    
     return (
       <div className="text-center">
         <button
