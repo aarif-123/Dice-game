@@ -88,6 +88,10 @@ function gameReducer(state: GameState, action: GameAction): GameState {
       };
     
     case 'NEXT_ROUND':
+      // Don't increment round if we've reached max rounds
+      if (state.currentRound >= state.maxRounds) {
+        return state;
+      }
       return {
         ...state,
         currentRound: state.currentRound + 1,
