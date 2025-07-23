@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dice Rolling Animations */
+@keyframes dice-roll {
+  0% {
+    transform: rotate(0deg) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: rotate(90deg) rotateX(180deg) rotateY(90deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(180deg) rotateX(360deg) rotateY(180deg) scale(1.2);
+  }
+  75% {
+    transform: rotate(270deg) rotateX(540deg) rotateY(270deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) rotateX(720deg) rotateY(360deg) scale(1);
+  }
+}
+
+@keyframes dice-shake {
+  0%, 100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  10% {
+    transform: translateX(-2px) translateY(-1px) rotate(-1deg);
+  }
+  20% {
+    transform: translateX(2px) translateY(1px) rotate(1deg);
+  }
+  30% {
+    transform: translateX(-3px) translateY(-2px) rotate(-2deg);
+  }
+  40% {
+    transform: translateX(3px) translateY(2px) rotate(2deg);
+  }
+  50% {
+    transform: translateX(-2px) translateY(-1px) rotate(-1deg);
+  }
+  60% {
+    transform: translateX(2px) translateY(1px) rotate(1deg);
+  }
+  70% {
+    transform: translateX(-1px) translateY(-1px) rotate(-0.5deg);
+  }
+  80% {
+    transform: translateX(1px) translateY(1px) rotate(0.5deg);
+  }
+  90% {
+    transform: translateX(-1px) translateY(0px) rotate(-0.25deg);
+  }
+}
+
+@keyframes dice-bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+
+/* Custom Animation Classes */
+.animate-dice-roll {
+  animation: dice-roll 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-dice-shake {
+  animation: dice-shake 0.8s ease-in-out;
+}
+
+.animate-dice-bounce {
+  animation: dice-bounce 0.6s ease-in-out;
+}
+
+/* Enhanced dice styling */
+.dice-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.dice-face {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
