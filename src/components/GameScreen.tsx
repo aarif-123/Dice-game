@@ -25,7 +25,7 @@ export function GameScreen({ onGameEnd }: GameScreenProps) {
 
   // Check if game is complete
   useEffect(() => {
-    if (state.currentRound > state.maxRounds && roundComplete) {
+    if (state.currentRound >= state.maxRounds && roundComplete) {
       const result = endGame();
       onGameEnd(result);
     }
